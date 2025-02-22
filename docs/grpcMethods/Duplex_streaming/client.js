@@ -16,7 +16,7 @@ call.write({ clientText: new Date() });
 //runs when it gets a reply from server and again sends back a msg using call.write 
 call.on("data", (res) => {
     console.log(res);
-    call.write({ clienttext: "This msg is from client" });
+    call.write({ clientText: "This msg is from client" });
 })
 
 //at this point server ended streaming but client still working
