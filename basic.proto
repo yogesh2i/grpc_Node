@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message msgRequest{
+    string clientText =1;
+}
+
+message msgResponse{
+    string serverText = 1;
+}
+
+service sampleService{
+    rpc unaryMethod(msgRequest) returns (msgResponse);
+    rpc serverStreamMethod(msgRequest) returns (stream msgResponse);
+    rpc clientStreamMethod(stream msgRequest) returns (msgResponse);
+    rpc duplexStreamMethod(stream msgRequest) returns (stream msgResponse);
+}
