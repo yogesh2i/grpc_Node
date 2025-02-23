@@ -24,3 +24,91 @@ gRPC HTTP/2 keepalives can be useful in a variety of situations, including but n
 * When sending data over a long-lived connection which might be considered as idle by proxy or load balancers.
 * When the network is less reliable (For example, mobile applications).
 * When using a connection after a long period of inactivity.
+
+ 
+## Keepalive Configuration Specification
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+<table>
+  <thead>
+    <tr>
+      <th>Options</th>
+      <th>Availability</th>
+      <th>Description</th>
+      <th>Client Default</th>
+      <th>Server Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>KEEPALIVE_TIME</code></td>
+      <td>Client and Server</td>
+      <td>The interval in milliseconds between PING frames.</td>
+      <td><code>INT_MAX</code> (Disabled)</td>
+      <td>7200000 (2 hours)</td>
+    </tr>
+    <tr>
+      <td><code>KEEPALIVE_TIMEOUT</code></td>
+      <td>Client and Server</td>
+      <td>The timeout in milliseconds for a PING frame to be acknowledged. If sender does not receive an acknowledgment within this time, it will close the connection.</td>
+      <td>20000 (20 seconds)</td>
+      <td>20000 (20 seconds)</td>
+    </tr>
+    <tr>
+      <td><code>KEEPALIVE_WITHOUT_CALLS</code></td>
+      <td>Client</td>
+      <td>Is it permissible to send keepalive pings from the client without any outstanding streams.</td>
+      <td>0 (false)</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td><code>PERMIT_KEEPALIVE_WITHOUT_CALLS</code></td>
+      <td>Server</td>
+      <td>Is it permissible to send keepalive pings from the client without any outstanding streams.</td>
+      <td>N/A</td>
+      <td>0 (false)</td>
+    </tr>
+    <tr>
+      <td><code>PERMIT_KEEPALIVE_TIME</code></td>
+      <td>Server</td>
+      <td>Minimum allowed time between a server receiving successive ping frames without sending any data/header frame.</td>
+      <td>N/A</td>
+      <td>300000 (5 minutes)</td>
+    </tr>
+    <tr>
+      <td><code>MAX_CONNECTION_IDLE</code></td>
+      <td>Server</td>
+      <td>Maximum time that a channel may have no outstanding rpcs, after which the server will close the connection.</td>
+      <td>N/A</td>
+      <td><code>INT_MAX</code> (Infinite)</td>
+    </tr>
+    <tr>
+      <td><code>MAX_CONNECTION_AGE</code></td>
+      <td>Server</td>
+      <td>Maximum time that a channel may exist.</td>
+      <td>N/A</td>
+      <td><code>INT_MAX</code> (Infinite)</td>
+    </tr>
+    <tr>
+      <td><code>MAX_CONNECTION_AGE_GRACE</code></td>
+      <td>Server</td>
+      <td>Grace period after the channel reaches its max age.</td>
+      <td>N/A</td>
+      <td><code>INT_MAX</code> (Infinite)</td>
+    </tr>
+  </tbody>
+</table> 
