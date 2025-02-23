@@ -27,22 +27,7 @@ gRPC HTTP/2 keepalives can be useful in a variety of situations, including but n
 
  
 ## Keepalive Configuration Specification
-<style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
 
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-
-  th {
-    background-color: #f2f2f2;
-  }
-</style>
 <table>
   <thead>
     <tr>
