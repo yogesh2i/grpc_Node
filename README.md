@@ -9,7 +9,16 @@ This repository aims to provide clear and concise documentation for gRPC using p
     * Server-side Streaming RPCs
     * Client-side Streaming RPCs
     * Bidirectional Streaming RPCs
-* **Metadata:** Currently working on adding examples and documentation for gRPC metadata.
+* **Metadata:** Complete! You'll find examples covering gRPC metadata:
+    * Unary metadata
+    * Server-side metadata
+    * client-stream metadata
+    * Duplex-stream metadata
+
+* **Retry:** Complete! You'll find examples covering gRPC retry config:
+    * How to implement service config on client side
+
+* **Interceptor:** In progress! 
 
 **What to Expect:**
 
