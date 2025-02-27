@@ -43,44 +43,6 @@ In this example, the logging interceptor will record all network traffic, includ
 
 By carefully considering the order of your interceptors, you can ensure that they function correctly and provide the desired behavior for your gRPC services.
 
-# gRPC Interceptors in Node.js
-
-## Client
-
-Node gRPC client interceptors are formally specified in gRFC L5. An interceptor is a function that can wrap a call object with an InterceptingCall, with intercepting functions for individual call operations. To illustrate, the following is a trivial interceptor with all interception methods:
-
-```javascript
-const interceptor = function(options, nextCall) {
-  const requester = {
-    start: function(metadata, listener, next) {
-      const listener = {
-          onReceiveMetadata: function(metadata, next) {
-            next(metadata);
-          },
-          onReceiveMessage: function(message, next) {
-            next(message);
-          },
-          onReceiveStatus: function(status, next) {
-            next(status);
-          }
-      };
-      next(metadata, listener);
-    },
-    sendMessage: function(message, next) {
-      next(message);
-    },
-    halfClose: function(next) {
-      next();
-    },
-    cancel: function(message, next) {
-      next();
-    }
-  };
-  return new InterceptingCall(nextCall(options), requester);
-};
-```
-
-Markdown
 
 # gRPC Interceptors in Node.js
 
