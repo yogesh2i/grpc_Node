@@ -21,7 +21,8 @@ This repository aims to provide clear and concise documentation for gRPC using p
 * **Keepalive:** Complete! You'll find examples covering gRPC keepalive config:
      * keepalive configurations for server and client      
 
-* **Interceptor:** In progress! 
+* **Interceptor:** Complete! Checkout examples explaining interceptors:
+     * Implementations for server and client
 
 **What to Expect:**
 
