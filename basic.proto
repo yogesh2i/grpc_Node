@@ -13,4 +13,5 @@ service sampleService{
     rpc serverStreamMethod(msgRequest) returns (stream msgResponse);
     rpc clientStreamMethod(stream msgRequest) returns (msgResponse);
     rpc duplexStreamMethod(stream msgRequest) returns (stream msgResponse);
+    rpc authenticator(msgRequest) returns (msgResponse);
 }
