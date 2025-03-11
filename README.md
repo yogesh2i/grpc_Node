@@ -23,6 +23,17 @@ This repository aims to provide clear and concise documentation for gRPC using p
 
 * **Interceptor:** Complete! Checkout examples explaining interceptors:
      * Implementations for server and client
+ 
+* **Cancellation:** Complete! Cancellation methods implemented:
+     * Implementations explaining cancellation methods
+
+* **Deadline:** Complete! Deadline implementations explained:
+     * Deadline configurations implemented
+         
+**Examples:**
+
+* Practical implementation for authorization
+* Practical implementation adding rate limit in gRPC Methods
 
 **What to Expect:**
 
